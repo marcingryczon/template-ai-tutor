@@ -11,20 +11,33 @@ The project is a living laboratory. As we advance through the curriculum, the ap
 
 Detailed lesson plans are split across phase files to reduce context window usage. Read the relevant phase file when working on that section.
 
-The lessons in this course should reflect the **most important elements of the {{LANGUAGE}} language or {{FRAMEWORK}} framework**. Each phase covers a critical area that every developer must master.
+### Step 1 — Design the phase structure for THIS language (mandatory)
 
-> **⚠️ The sample phase structure below is NOT final.** It is a generic starting point that **must be adapted** to the target language or framework. When instantiating this template, review, rename, split, merge, or replace phases so they match the actual learning progression. Some languages may need fewer phases, others may need more.
+> **⚠️ There is NO fixed phase list in this template.** `course/` contains only `phase-TEMPLATE.md`.
+> Do NOT assume or copy a generic 5/6/7-phase structure. The number and names of phases
+> MUST be derived from what is unique and most important in **{{LANGUAGE}}** / **{{FRAMEWORK}}**.
+> Some languages need fewer phases, some need more.
+
+Before creating any phase files, answer and record the answers in this document:
+
+1. What makes {{LANGUAGE}} unique? Which concepts must EVERY developer master?
+2. Which concepts are framework-specific ({{FRAMEWORK}}) vs. language-specific?
+3. What is the natural learning order (fundamentals → advanced → production)?
+4. How many phases does that progression require? (no minimum, no maximum)
+
+### Step 2 — Create phase files from the template
+
+For each designed phase, copy `course/phase-TEMPLATE.md` to `course/phase-NN-<slug>.md`
+(NN = sequential number, slug = short kebab-case name), fill in the placeholders,
+and register the phase in the table below.
 
 **Status legend:** ⬜ not started ◐ in progress ✅ completed
 
 | Phase | Status | Topic | File |
 |---|---|---|---|
-| **0** | ⬜ | Workspace Setup & {{LANGUAGE}} Fundamentals | `course/phase-00-fundamentals.md` |
-| **1** | ⬜ | Core {{LANGUAGE}} Concepts | `course/phase-01-core-concepts.md` |
-| **2** | ⬜ | Data Structures & Collections | `course/phase-02-data-structures.md` |
-| **3** | ⬜ | Advanced Patterns & {{LANGUAGE}} Features | `course/phase-03-advanced-patterns.md` |
-| **4** | ⬜ | Testing | `course/phase-04-testing.md` |
-| **5** | ⬜ | Production & Deployment | `course/phase-05-production.md` |
+| **0** | ⬜ | {{PHASE_0_TOPIC}} | `course/phase-00-{{SLUG_0}}.md` |
+| **1** | ⬜ | {{PHASE_1_TOPIC}} | `course/phase-01-{{SLUG_1}}.md` |
+| **...** | ⬜ | *(as many rows as the language requires)* | `course/phase-NN-{{SLUG_NN}}.md` |
 
 ---
 

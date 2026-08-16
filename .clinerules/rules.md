@@ -24,7 +24,7 @@ To instantiate a course for a specific language:
 
 1. Replace all `{{PLACEHOLDER}}` tokens with language-specific values
 2. Populate `.clinerules/skills/` with official documentation for the target language
-3. Generate phase files in `course/` based on the language learning progression
+3. Design the phase structure for the target language (see Phase Index steps in `.clinerules/course.md`), then create the phase files in `course/` from `phase-TEMPLATE.md`
 4. Scaffolding the project structure appropriate for the language
 5. Create initial lesson files in `lessons/`
 

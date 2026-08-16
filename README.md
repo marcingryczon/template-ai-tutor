@@ -27,19 +27,11 @@ The LLM will use the templates in this repository to generate a complete, struct
 
 ### `course/` — Curriculum Phases
 
-Each phase file defines a group of related lessons:
-
-| File | Covers |
+| File | Purpose |
 |---|---|
-| `phase-00-fundamentals.md` | Workspace setup, syntax, types, mental model |
-| `phase-01-core-concepts.md` | Functions, control flow, modules, error handling |
-| `phase-02-data-structures.md` | Collections, custom types, memory management |
-| `phase-03-advanced-patterns.md` | Language-specific advanced features |
-| `phase-04-testing.md` | Testing frameworks, strategies, policies |
-| `phase-05-production.md` | Deployment, optimization, production readiness |
-| `phase-TEMPLATE.md` | Reusable template for creating additional phases |
+| `phase-TEMPLATE.md` | Reusable template from which every phase file is created |
 
-> **⚠️ This sample course structure is NOT final.** It is a generic starting point that **must be adapted** to the target language or framework. The LLM should review, rename, split, merge, or replace phases so they match the actual learning progression of the language. Some languages may need fewer phases, others may need more. The phase names, lesson topics, and ordering should all be tailored to what matters most for that specific language.
+> **⚠️ There is NO fixed phase structure in this template.** When instantiating for a specific language, the LLM must first **design the phase structure** — derive the number, names, and ordering of phases from what is unique to that language/framework. Some languages need fewer phases, others need more. Only after that design step, copy `phase-TEMPLATE.md` to `phase-NN-<slug>.md` files, fill in the placeholders, and register the phases in the Phase Index of `.clinerules/course.md`.
 
 ### `lessons/` — Individual Lesson Files
 
@@ -118,15 +110,16 @@ Each lesson should:
 
 ### Progressive Complexity
 
-The curriculum should follow this progression:
+The curriculum should progress through these questions — each answered by one or more phases,
+in the number and order that fits the target language (the phases are NOT predefined):
 
 ```
-Phase 0: Setup & Fundamentals      →  "What is this language?"
-Phase 1: Core Concepts             →  "How do I write code?"
-Phase 2: Data & Structures         →  "How do I model data?"
-Phase 3: Advanced Patterns         →  "How do I write good code?"
-Phase 4: Testing                   →  "How do I verify it works?"
-Phase 5: Production                →  "How do I ship it?"
+"What is this language?"    →  setup, syntax, mental model
+"How do I write code?"      →  core concepts, language-specific constructs
+"How do I model data?"      →  data structures, custom types, memory
+"How do I write good code?" →  advanced patterns, idioms, architecture
+"How do I verify it works?" →  testing strategies and policies
+"How do I ship it?"         →  tooling, optimization, production readiness
 ```
 
 ---
