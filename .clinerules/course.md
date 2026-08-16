@@ -11,21 +11,12 @@ The project is a living laboratory. As we advance through the curriculum, the ap
 
 Detailed lesson plans are split across phase files to reduce context window usage. Read the relevant phase file when working on that section.
 
-### Step 1 — Design the phase structure for THIS language (mandatory)
-
 > **⚠️ There is NO fixed phase list in this template.** `course/` contains only `phase-TEMPLATE.md`.
-> Do NOT assume or copy a generic 5/6/7-phase structure. The number and names of phases
-> MUST be derived from what is unique and most important in **{{LANGUAGE}}** / **{{FRAMEWORK}}**.
+> The number and names of phases MUST be derived from what is unique and most important in
+> **{{LANGUAGE}}** / **{{FRAMEWORK}}** — do NOT assume or copy a generic 5/6/7-phase structure.
 > Some languages need fewer phases, some need more.
 
-Before creating any phase files, answer and record the answers in this document:
-
-1. What makes {{LANGUAGE}} unique? Which concepts must EVERY developer master?
-2. Which concepts are framework-specific ({{FRAMEWORK}}) vs. language-specific?
-3. What is the natural learning order (fundamentals → advanced → production)?
-4. How many phases does that progression require? (no minimum, no maximum)
-
-### Step 2 — Create phase files from the template
+Full setup procedure (placeholder table, skill population, phase design questions): `meta/INSTANTIATION.md`.
 
 For each designed phase, copy `course/phase-TEMPLATE.md` to `course/phase-NN-<slug>.md`
 (NN = sequential number, slug = short kebab-case name), fill in the placeholders,
@@ -77,6 +68,34 @@ start (clean baseline, read-only)
 2. I'm a beginner in {{LANGUAGE}}
 3. Run the development server and visually check the application
 4. Use official {{LANGUAGE}} tools, linters, and formatters where available
+5. Keep the course language consistent — all curriculum files (phases, lessons, skills) use ONE language (EN or PL)
+
+---
+
+## Learner Environment
+
+> Fill in once during instantiation (see `meta/INSTANTIATION.md`).
+> ALL terminal commands MUST be adapted to this environment (shell syntax, path style, quoting).
+
+- **OS:** {{OS}} *(e.g. Windows 11 / macOS 15 / Ubuntu 24.04)*
+- **Shell:** {{SHELL}} *(e.g. PowerShell 7, cmd.exe, bash, zsh)*
+- **Path style:** Windows (`C:\...`) or POSIX (`/home/...`)
+- **Command chaining:** `;` (PowerShell 5 / bash) or `&&` (PowerShell 7, bash)
+- **Notes:** *(e.g. case-sensitive file system? line endings CRLF? GUI tools?)*
+
+---
+
+## Tutor Meta-Commands
+
+The learner can invoke these at any point during a session:
+
+| Command | Action |
+|---|---|
+| `toc` / `spis treści` | Show phase/lesson progress from the Phase Index |
+| `skip` / `pomiń` | Skip the current exercise and move to the next step |
+| `repeat` / `powtórz` | Re-explain the current concept from a different angle |
+| `test` | Run the project's test suite and report results |
+| `status` / `stan` | Show current branch, lesson progress, and coverage (if Testing Phase done) |
 
 ---
 
@@ -115,8 +134,12 @@ After completing the **Testing Phase** the following policy takes effect:
 
 1. **Backfill** — All existing code units in {{PROJECT_NAME}} must receive unit tests.
 2. **Ongoing** — Every new or modified unit must include corresponding tests before the lesson is marked complete.
-3. **Threshold** — Minimum code coverage is **90%** (measured per-file, not project-wide).
-4. **Enforcement** — Before merging any lesson branch after the Testing Phase, verify tests pass and coverage meets the threshold.
+3. **Threshold:**
+   - **Project-wide:** ≥ **80%** line coverage.
+   - **Business logic** (`src/app/`, `src/lib/`, or equivalent): ≥ **90%**.
+   - **Training exercises** (`src/training/`): no minimum — they are learning artifacts.
+   - **Config / boilerplate / entry points:** excluded from measurement.
+4. **Enforcement** — Before merging any lesson branch after the Testing Phase, verify tests pass and coverage meets the thresholds.
 
 ---
 

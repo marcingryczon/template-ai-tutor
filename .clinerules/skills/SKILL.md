@@ -32,6 +32,9 @@ Each skill file should follow this structure:
 
 ```markdown
 # {{TOPIC_NAME}}
+*Language: {{LANGUAGE}} {{VERSION}} | Framework: {{FRAMEWORK}} {{VERSION}}*
+*Source: {{OFFICIAL_DOC_URL}}*
+*Last verified: {{DATE}}*
 
 ## Overview
 Brief description of the topic and its importance in {{LANGUAGE}}.
@@ -54,24 +57,18 @@ Code examples demonstrating correct usage.
 Links to official documentation.
 ```
 
-## Required Skill Topics
+## Skill Topics
 
-At minimum, every language course should include skills for:
+> **Skill topics MUST be derived from the phase structure of THIS language.**
+> Do NOT copy a generic topic list — different languages need different skills
+> (e.g. Rust needs ownership and lifetimes, Go needs goroutines, neither has "comprehensions").
 
-| Category | Topics |
-|---|---|
-| **Fundamentals** | syntax, types, variables, operators |
-| **Control Flow** | conditionals, loops, comprehensions |
-| **Functions** | definitions, parameters, return values, closures |
-| **Data Structures** | built-in collections, custom types |
-| **Error Handling** | exceptions, result types, error patterns |
-| **Modules** | imports, exports, package management |
-| **OOP/Functional** | classes, protocols, patterns (as applicable) |
-| **Concurrency** | threads, async/await, goroutines (as applicable) |
-| **Testing** | unit tests, integration tests, mocking |
-| **Tooling** | linters, formatters, package manager |
-| **Ecosystem** | popular libraries, frameworks |
-| **Performance** | profiling, optimization techniques |
+Rules:
+
+1. For each phase in the Phase Index of `.clinerules/course.md`, identify its key concepts.
+2. Create one skill file per key concept (or per closely related group of concepts).
+3. **Minimum: one skill file per phase. Maximum: 3 per phase.**
+4. Every skill file must carry the version metadata from the template above.
 
 ## Source Priority
 

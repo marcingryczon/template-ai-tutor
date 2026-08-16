@@ -1,17 +1,17 @@
 # Lesson {{NUMBER}}.{{SUB}}: {{LESSON_TITLE}}
 
-## Cel lekcji
+## Lesson Goal
 {{LESSON_GOAL}}
 
 ---
 
-## Wprowadzenie
+## Introduction
 
 {{INTRODUCTION}}
 
 ---
 
-## Teoria
+## Theory
 
 ### {{THEORY_SECTION_1}}
 
@@ -23,19 +23,31 @@
 
 ---
 
-## Ćwiczenie treningowe (`src/training/`)
+## Training Exercise (`src/training/`)
 
 {{TRAINING_EXERCISE}}
 
 ---
 
-## Aplikacja w projekcie (`src/app/`)
+## Project Application (`src/app/`)
 
 {{PROJECT_APPLICATION}}
 
 ---
 
-## Podsumowanie
+## Acceptance Criteria
+
+The mentor verifies ALL of the following before the lesson is marked complete:
+
+- [ ] Training exercise in `src/training/` runs without errors and matches the expected output
+- [ ] Project application in `src/app/` integrates the concept and the application still runs
+- [ ] Linter/formatter pass with no new violations
+- [ ] {{LESSON_SPECIFIC_CRITERION_1}}
+- [ ] {{LESSON_SPECIFIC_CRITERION_2}}
+
+---
+
+## Summary
 
 - {{SUMMARY_1}}
 - {{SUMMARY_2}}
@@ -43,6 +55,6 @@
 
 ---
 
-## Następne kroki
+## Next Steps
 
-Po opanowaniu tej lekcji, przejdź do: {{NEXT_LESSON}}
+After mastering this lesson, move on to: {{NEXT_LESSON}}

@@ -4,13 +4,16 @@
 
 ## How to Use This Template
 
-Copy this folder and give the following command to an LLM:
+Copy this folder and give the following command to an LLM (e.g. Cline):
 
 ```
 Create a course for [LANGUAGE/FRAMEWORK]
 ```
 
-The LLM will use the templates in this repository to generate a complete, structured curriculum.
+The LLM will follow the one-time setup procedure in `meta/INSTANTIATION.md`
+(placeholder replacement, phase design, skill population, project scaffolding,
+verification checklist) and use the templates in this repository to generate
+a complete, structured curriculum.
 
 ---
 
@@ -20,10 +23,16 @@ The LLM will use the templates in this repository to generate a complete, struct
 
 | File | Purpose |
 |---|---|
-| `course.md` | Master curriculum roadmap — defines phases, branching strategy, mentoring mode, and project description |
-| `rules.md` | Skill selection policy and template instantiation instructions |
+| `course.md` | **Single source of truth** for the master roadmap: phase index, Git branching strategy, mentoring mode, workflow protocol, test coverage policy, tutor meta-commands |
+| `rules.md` | Skill selection policy (always-loaded rules) |
 | `agents/senior.md` | AI persona definition — senior engineer mentor for the target language |
 | `skills/SKILL.md` | Guide for populating official language/framework documentation as Skills |
+
+### `meta/` — One-Time Setup
+
+| File | Purpose |
+|---|---|
+| `INSTANTIATION.md` | One-time setup procedure: placeholder table, skill sources, phase design, **post-instantiation verification checklist**. Not loaded during normal tutoring sessions. |
 
 ### `course/` — Curriculum Phases
 
@@ -35,9 +44,11 @@ The LLM will use the templates in this repository to generate a complete, struct
 
 ### `lessons/` — Individual Lesson Files
 
-Detailed lesson content with exercises, explanations, and project applications.
+| File | Purpose |
+|---|---|
+| `lesson-TEMPLATE.md` | Reusable lesson template: objective, theory, training exercise, project application, **acceptance criteria**, summary |
 
-### `src/` — Project Structure
+### `src/` — Project Structure (created during instantiation)
 
 | Directory | Purpose |
 |---|---|
@@ -71,44 +82,22 @@ When instantiating this template for a specific language:
 
 ---
 
-## Placeholders
+## Where to Find What (single sources of truth)
 
-Replace these tokens when instantiating the template:
-
-| Placeholder | Example Values |
+| Topic | Authoritative location |
 |---|---|
-| `{{LANGUAGE}}` | Python, Rust, Go, JavaScript |
-| `{{FRAMEWORK}}` | Django, Actix-web, Gin, React |
-| `{{PACKAGE_MANAGER}}` | pip, cargo, go mod, npm |
-| `{{BUILD_COMMAND}}` | `python runserver`, `cargo run`, `go run` |
-| `{{PROJECT_NAME}}` | TaskFlow, NoteApp, BlogEngine |
-| `{{PROJECT_DESCRIPTION}}` | Description of the tutorial application |
-| `{{TEST_FRAMEWORK}}` | pytest, cargo test, go test |
-| `{{LINTER}}` | flake8, clippy, golangci-lint |
-| `{{EXTENSION}}` | .py, .rs, .go |
+| Placeholder tokens (`{{LANGUAGE}}`, `{{PROJECT_NAME}}`, …) | `meta/INSTANTIATION.md` |
+| Git branch strategy (`start` / `main` / `lesson-XX-*`) | `.clinerules/course.md` |
+| Learner environment (OS, shell — for command adaptation) | `.clinerules/course.md` |
+| Test coverage policy | `.clinerules/course.md` |
+| 5-step lesson workflow & training flow | `.clinerules/course.md` |
+| Curriculum design guidelines & verification checklist | `meta/INSTANTIATION.md` |
+| Skill file format & sources | `.clinerules/skills/SKILL.md` |
+| Tutor persona & coding standards | `.clinerules/agents/senior.md` |
 
 ---
 
-## Curriculum Design Guidelines
-
-### Phase Structure
-
-Each phase should:
-- Focus on a single theme or area of the language
-- Contain 3-5 lessons that build on each other
-- Include training exercises and project applications for each lesson
-- End with clear completion criteria
-
-### Lesson Structure
-
-Each lesson should:
-- Have a clear objective
-- Cover specific topics with depth
-- Include a training exercise (isolated practice)
-- Include a project application (real code integration)
-- Follow the 5-step workflow: Discussion → Exercise → Verify → Apply → Verify
-
-### Progressive Complexity
+## Progressive Complexity
 
 The curriculum should progress through these questions — each answered by one or more phases,
 in the number and order that fits the target language (the phases are NOT predefined):
@@ -121,18 +110,6 @@ in the number and order that fits the target language (the phases are NOT predef
 "How do I verify it works?" →  testing strategies and policies
 "How do I ship it?"         →  tooling, optimization, production readiness
 ```
-
----
-
-## Git Branch Strategy
-
-The course uses a structured branching model:
-
-- **`start`** — Clean baseline (read-only)
-- **`main`** — Working branch (merge target)
-- **`lesson-XX-topic`** — Individual lesson branches
-
-Each lesson branches from `main`, gets implemented, and merges back.
 
 ---
 
